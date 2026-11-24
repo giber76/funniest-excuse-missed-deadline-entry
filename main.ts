@@ -25,6 +25,9 @@ if (LINE.includes("\n") || LINE.includes("\r")) {
 if (LINE.trim().length === 0) {
   throw new Error("excuse line must not be only white space");
 }
+if (LINE !== LINE.trim()) {
+  throw new Error("excuse line must not start or end with white space");
+}
 
 // Create the output dir if missing. Never chmod the dir itself: on the
 // grader it is a root-owned bind mount and chmod fails EPERM.
